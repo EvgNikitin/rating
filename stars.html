@@ -1,0 +1,55 @@
+
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+<head> 
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" href="style.css">
+	<script>
+		function setVote(){
+			var result = document.getElementById('result')
+			var uls = document.getElementsByTagName('ul')
+			var ulsLnt = uls.length
+			for(var i=0; i<ulsLnt; i++){
+				if(uls[i].className == 'voting'){
+					var as = uls[i].getElementsByTagName('a')
+					var asLnt = as.length
+					for(var j=0; j<asLnt; j++){
+						as[j].rel = j+1				
+						as[j].onclick = function(){
+							var sb = this.parentNode.parentNode.getElementsByTagName('a')
+							var sbLnt = sb.length						
+							for(var k=0; k<sbLnt; k++){
+								sb[k].className = ''
+							}
+							this.className = 'cur'
+							result.innerHTML = 'Рейтинг «' + this.rel + '» отправлен' 
+							return false
+						}
+					}
+				}
+			}
+		}
+		window.onload = setVote;
+	</script>
+</head>
+<body>
+	<ul class="voting">
+		<li class="one">
+			<a href="#">1</a>
+		</li>
+		<li class="two">
+			<a href="#">2</a>
+		</li>
+		<li class="three">
+			<a href="#" class="cur">3</a>
+		</li>
+		<li class="four">
+			<a href="#">4</a>
+		</li>
+		<li class="five">
+			<a href="#">5</a>
+		</li>
+	</ul>
+	<p id="result"></p>
+</body>
+</html>

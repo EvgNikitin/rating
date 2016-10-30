@@ -1,0 +1,11 @@
+@import 'reset.css';
+.voting { position:relative; margin:0 0 1em; width:104px; height:22px; overflow:hidden; background:url(stars.png) 0 -22px no-repeat; } 
+.voting li { float:left; } 
+.voting a { position:absolute; top:0; left:0; display:block; height:22px; text-indent:-9999px; }
+.voting a.cur, .voting a:hover, .voting:hover a.cur:hover, .voting.phover a.cur:hover, .voting:hover a:hover, .voting.phover a:hover { background:#fc0 url(stars.png) no-repeat; }
+.voting:hover a.cur, .voting.phover a.cur { background:none; } 
+.voting .one a { width:15px; z-index:5; }
+.voting .two a { width:34px; z-index:4; } 
+.voting .three a { width:56px; z-index:3; } 
+.voting .four a { width:80px; z-index:2; } 
+.voting .five a { width:104px; z-index:1; }
